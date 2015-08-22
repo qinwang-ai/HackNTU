@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<% include layouts/head.html %>
+
+<body>
+    <div class="modal fade" id="demo-modal-1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+              <div id="nuggets-demo-chart1" style="height:600px;">
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="demo-modal-2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div id="nuggets-demo-chart2" style="height:600px;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="demo-modal-3" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div id="nuggets-demo-chart3" style="height:600px;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="wrapper">
+
+        <% include layouts/nav.html %>
+
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Nuggets #<%=id%></h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-4">
+                    <h3>Detail Information</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <form role="form">
+                                <div class="form-group">
+                                    <label>Type</label>
+                                    <p class="form-control-static">Form</p>
+                                </div>
+                                <div class="form-group" style="overflow-x:scroll;">
+                                    <label>URL</label>
+                                    <p class="form-control-static">http://api.carriage.com/nuggets/7544/<%=id%></p>
+                                </div>
+                                <div class="form-group">
+                                    <label>Next Sync</label>
+                                    <p class="form-control-static">2015-08-<%=parseInt(Math.random()*4) + 22%></p>
+                                </div>
+                                <div class="form-group">
+                                    <label>Key</label>
+                                    <p class="form-control-static"><%=tools.md5(String(Math.random())).substr(0, 10)%></p>
+                                </div>
+                                <div class="form-group">
+                                    <label>Operation</label>
+                                    <p>
+                                        <button type="button" class="btn btn-primary">Export</button>
+                                        <button type="button" class="btn btn-info">Reset</button>
+                                    </p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Type</th>
+                                <th>Name</th>
+                                <th>Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Text</td>
+                                <td>Search Keyword</td>
+                                <td><button id="button1" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demo-modal-1">View</button> <button type="button" class="btn btn-primary btn-sm">Export</button></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Radio</td>
+                                <td>Age</td>
+                                <td><button id="button2" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demo-modal-2">View</button> <button type="button" class="btn btn-primary btn-sm">Export</button></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Node</td>
+                                <td>Frineds</td>
+                                <td><button id="button3" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#demo-modal-3">View</button> <button type="button" class="btn btn-primary btn-sm">Export</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="jumbotron">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing.</p>
+                        </p>
+                    </div>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+</body>
+
+<% include layouts/foot.html %>
+<script>
+
+$("#button1").click(function () {
+    setTimeout(function () {
+        var myChart1 = echarts.init(document.getElementById('nuggets-demo-chart1'));
+
+        function createRandomItemStyle() {
+            return {
+                normal: {
+                    color: 'rgb(' + [
+                        Math.round(Math.random() * 160),
+                        Math.round(Math.random() * 160),
+                        Math.round(Math.random() * 160)
+                    ].join(',') + ')'
+                }
+            };
+        }
+
+        var option1 = {
+            title: {
+                text: ''
+            },
+            tooltip: {
+                show: true
+            },
+            series: [{
+                name: 'Google Trends',
+                type: 'wordCloud',
+                size: ['80%', '80%'],
+                textRotation : [0, 45, 90, -45],
+                textPadding: 0,
+                autoSize: {
+                    enable: true,
+                    minSize: 14
+                },
+                data: [
+                    {
+                        name: "A la carte cigarettes",
+                        value: 10000,
+                        itemStyle: {
+                            normal: {
+                                color: 'black'
+                            }
+                        }
+                    },
+                    {
+                        name: "Prepaid mobile load",
+                        value: 6181,
+                        itemStyle: createRandomItemStyle()
+                    },
+                    {
+                        name: "Single-use shampo",
+                        value: 4386,
+                        itemStyle: createRandomItemStyle()
+                    },
+                    {
+                        name: "Jurassic World",
+                        value: 4055,
+                        itemStyle: createRandomItemStyle()
+                    },
+                    {
+                        name: "Charter Communications",
+                        value: 2467,
+                        itemStyle: createRandomItemStyle()
+                    },
+                    {
+                        name: "Chick Fil A",
+                        value: 2244,
+                        itemStyle: createRandomItemStyle()
+                    },
+                    {
+                        name: "Planet Fitness",
+                        value: 1898,
+                        itemStyle: createRandomItemStyle()
+                    },
+                    {
+                        name: "Pitch Perfect",
+                        value: 1484,
+                        itemStyle: createRandomItemStyle()
+                    },
+                    {
+                        name: "Express",
+                        value: 1112,
+                        itemStyle: createRandomItemStyle()
+                    },
+                    {
+                        name: "Home",
+                        value: 965,
+                        itemStyle: createRandomItemStyle()
+                    },
+                    {
+                        name: "Johnny Depp",
+                        value: 847,
+                        itemStyle: createRandomItemStyle()
+                    },
+                    {
+                        name: "Lena Dunham",
+                        value: 582,
+                        itemStyle: createRandomItemStyle()
+                    },
+                    {
+                        name: "Lewis Hamilton",
+                        value: 555,
+                        itemStyle: createRandomItemStyle()
+                    },
+                    {
+                        name: "KXAN",
+                        value: 550,
+                        itemStyle: createRandomItemStyle()
+                    },
+                    {
+                        name: "Mary Ellen Mark",
+                        value: 462,
+                        itemStyle: createRandomItemStyle()
+                    },
+                    {
+                        name: "Farrah Abraham",
+                        value: 366,
+                        itemStyle: createRandomItemStyle()
+                    },
+                    {
+                        name: "Rita Ora",
+                        value: 360,
+                        itemStyle: createRandomItemStyle()
+                    },
+                    {
+                        name: "Serena Williams",
+                        value: 282,
+                        itemStyle: createRandomItemStyle()
+                    },
+                    {
+                        name: "NCAA baseball tournament",
+                        value: 273,
+                        itemStyle: createRandomItemStyle()
+                    },
+                    {
+                        name: "Point Break",
+                        value: 265,
+                        itemStyle: createRandomItemStyle()
+                    }
+                ]
+            }]
+        };
+
+        myChart1.setOption(option1);
+    }, 500);
+});
+
+$('#button2').click(function () {
+    setTimeout(function () {
+        var myChart2 = echarts.init(document.getElementById('nuggets-demo-chart2'));
+
+        var option2 = {
+            tooltip : {
+                trigger: 'axis'
+            },
+            legend: {
+                data:['男','女']
+            },
+            toolbox: {
+                show : false
+            },
+            calculable : true,
+            xAxis : [
+                {
+                    type : 'category',
+                    data : ['0~10','11~20','21~30','31~40','41~50','51~60','61~70','71~80','81~90','91~100']
+                }
+            ],
+            yAxis : [
+                {
+                    type : 'value'
+                }
+            ],
+            series : [
+                {
+                    name:'男',
+                    type:'bar',
+                    data:[50, 70, 183, 408, 1153, 1914, 2118, 545, 37, 20]
+                },
+                {
+                    name:'女',
+                    type:'bar',
+                    data:[54, 67, 180, 380, 1000, 1800, 2300, 650, 100, 70]
+                }
+            ]
+        };
+
+        myChart2.setOption(option2);
+
+    }, 500);
+});
+
+$('#button3').click(function () {
+    setTimeout(function () {
+        var myChart3 = echarts.init(document.getElementById('nuggets-demo-chart3'));
+
+        var option3 = {
+                tooltip : {
+                    trigger: 'item',
+                    formatter : "{b}"
+                },
+                toolbox: {
+                    show : false
+                },
+                legend : {
+                    data : [''],
+                    orient : 'vertical',
+                    x : 'left'
+                },
+                noDataEffect: 'none',
+                series :[{
+                    type: 'force',
+                }],
+            };
+            $.ajax({
+                url: '/webkit-dep.json',
+                dataType: 'json',
+                success: function (data) {
+                    option3.series[0] = {
+                        type: 'force',
+                        name: 'webkit-dep',
+                        itemStyle: {
+                            normal : {
+                                linkStyle : {
+                                    opacity : 0.5
+                                }
+                            }
+                        },
+                        categories: data.categories,
+                        nodes: data.nodes,
+                        links: data.links,
+                        minRadius: 5,
+                        maxRadius: 8,
+                        gravity: 1.1,
+                        scaling: 1.1,
+                        steps: 20,
+                        large: true,
+                        useWorker: true,
+                        coolDown: 0.995,
+                        ribbonType: false
+                    };
+
+                    myChart3.setOption(option3);
+                    myChart3.hideLoading();
+                }
+            });
+
+
+        myChart3.setOption(option3);
+
+    }, 500);
+});
+
+</script>
+
+  </body>
+
+</html>

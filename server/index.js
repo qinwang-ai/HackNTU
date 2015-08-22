@@ -69,6 +69,12 @@ router.get('/SlowShutter/:id', function* () {
         id: this.params.id
     });
 });
+router.get('/Nuggets/:id', function* () {
+    yield this.render('/NuggetsDetail', {
+        tools: tools,
+        id: this.params.id
+    });
+});
 
 app.use(router.routes());
 
