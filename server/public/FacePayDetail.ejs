@@ -19,37 +19,37 @@
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-4">
-                    <h3>Details</h3>
+                    <h3>Detail Information</h3>
                     <div class="row">
                         <div class="col-md-5 col-md-offset-1">
                             <form role="form">
-                                <div class="form-group">
-                                    <label>Static Control</label>
-                                    <p class="form-control-static">email@example.com</p>
+                                <div class="form-group" style="overflow-x:scroll;">
+                                    <label>Url</label>
+                                    <p class="form-control-static">http://api.carriage.com/facepay/7544/<%=id%></p>
                                 </div>
                                 <div class="form-group">
-                                    <label>Static Control</label>
-                                    <p class="form-control-static">email@example.com</p>
+                                    <label>Key</label>
+                                    <p class="form-control-static"><%=tools.md5(String(Math.random())).substr(0, 10)%></p>
                                 </div>
                                 <div class="form-group">
-                                    <label>Static Control</label>
-                                    <p class="form-control-static">email@example.com</p>
+                                    <label>Account</label>
+                                    <p class="form-control-static">$ <%=parseInt(Math.random()*300) + 500%></p>
                                 </div>
                             </form>
                         </div>
                         <div class="col-md-5">
                             <form role="form">
                                 <div class="form-group">
-                                    <label>Static Control</label>
-                                    <p class="form-control-static">email@example.com</p>
+                                    <label>Pay Method</label>
+                                    <p class="form-control-static">Cash Or Card</p>
                                 </div>
                                 <div class="form-group">
-                                    <label>Static Control</label>
-                                    <p class="form-control-static">email@example.com</p>
+                                    <label>Sync Interval</label>
+                                    <p class="form-control-static">3 Days</p>
                                 </div>
                                 <div class="form-group">
-                                    <label>Static Control</label>
-                                    <p class="form-control-static">email@example.com</p>
+                                    <label>Next Sync Day</label>
+                                    <p class="form-control-static">2015-08-21</p>
                                 </div>
                             </form>
                         </div>
@@ -71,12 +71,15 @@
                                     <div class="timeline-panel">
                                         <div class="timeline-heading">
                                             <h4 class="timeline-title">Xander Wang</h4>
-                                            <p><small class="text-muted"><i class="fa fa-check-circle-o"></i> 08-21 21:09 in Taipei</small>
+                                            <p><small class="text-muted"><i class="fa fa-check-circle-o"></i> 08-<%=21-i%> <%=parseInt(Math.random()*10) + 12%>:<%=parseInt(Math.random()*60)%> in Taipei</small>
                                             </p>
                                         </div>
                                         <div class="timeline-body">
                                             <p>TB-4522321</p>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero laboriosam dolor perspiciatis omnis exercitationem. Beatae, officia pariatur? Est cum veniam excepturi. Maiores praesentium, porro voluptas suscipit facere rem dicta, debitis.</p>
+                                            <p>Account: $<%=parseInt(Math.abs(Math.random()*100))%></p>
+                                            <p>ID Num: <%=parseInt(Math.abs(Math.random()*10000000))%></p>
+                                            <p>Pay Method: Cash</p>
+                                            <p>Location: Mindanao</p>
                                         </div>
                                     </div>
                                 </li>
