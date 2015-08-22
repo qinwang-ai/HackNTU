@@ -10,7 +10,13 @@ start:
 dev:
 	@node-dev --harmony ./index.js
 
+sync:
+	@node --harmony ./sync.js
+
+init:
+	@node --harmony ./init.js
+
 jshint:
 	@./node_modules/.bin/jshint .
 
-.PHONY: start jshint dev
+.PHONY: start jshint dev sync init
