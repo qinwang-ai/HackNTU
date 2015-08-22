@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<% include layouts/head.html %>
+
+<body>
+
+    <div id="wrapper">
+
+        <% include layouts/nav.html %>
+
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">RunningBit</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart fa-fw"></i>Status Pie
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div id="chart1" style="height:400px;"></div>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <div class="col-lg-7">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-arrow-right fa-fw"></i> Task Status
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+
+                                <%for(var i = 1; i < 7; i++) {%>
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <i class="fa fa-tasks fa-fw"></i> Task <%=i%>
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <div class="progress progress-striped active">
+                                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                            </div>
+                                            <span class="pull-right text-muted"><%=i%> G</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+
+                                </a>
+                                <%}%>
+
+                            <!-- /.list-group -->
+                            <a href="#" class="btn btn-default btn-block">New Task</a>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-4 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="jumbotron">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing.</p>
+                        </p>
+                    </div>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+</body>
+
+<% include layouts/foot.html %>
+
+<script>
+    var myChart = echarts.init(document.getElementById('chart1'));
+    var option = {
+        tooltip : {
+            trigger: 'item',
+            formatter: "{b} : {c} ({d}%)"
+        },
+        legend: {
+            orient : 'vertical',
+            x : 'left',
+            data:['Init','Init finish','Pending','Complete']
+        },
+        toolbox: {
+            show : false
+        },
+        calculable : true,
+        series : [
+            {
+                type:'pie',
+                radius : ['50%', '70%'],
+                itemStyle : {
+                    normal : {
+                        label : {
+                            show : false
+                        },
+                        labelLine : {
+                            show : false
+                        }
+                    },
+                    emphasis : {
+                        label : {
+                            show : true,
+                            position : 'center',
+                            textStyle : {
+                                fontSize : '30',
+                                fontWeight : 'bold'
+                            }
+                        }
+                    }
+                },
+                data:[
+                    {value:310, name:'Init'},
+                    {value:234, name:'Init finish'},
+                    {value:135, name:'Pending'},
+                    {value:448, name:'Complete'}
+                ]
+            }
+        ]
+    };
+    myChart.setOption(option);
+</script>
+
+  </body>
+
+</html>

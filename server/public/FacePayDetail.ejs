@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<% include layouts/head.html %>
+
+<body>
+
+    <div id="wrapper">
+
+        <% include layouts/nav.html %>
+
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">FacePay #<%=id%></h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-4">
+                    <h3>Details</h3>
+                    <div class="row">
+                        <div class="col-md-5 col-md-offset-1">
+                            <form role="form">
+                                <div class="form-group">
+                                    <label>Static Control</label>
+                                    <p class="form-control-static">email@example.com</p>
+                                </div>
+                                <div class="form-group">
+                                    <label>Static Control</label>
+                                    <p class="form-control-static">email@example.com</p>
+                                </div>
+                                <div class="form-group">
+                                    <label>Static Control</label>
+                                    <p class="form-control-static">email@example.com</p>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-5">
+                            <form role="form">
+                                <div class="form-group">
+                                    <label>Static Control</label>
+                                    <p class="form-control-static">email@example.com</p>
+                                </div>
+                                <div class="form-group">
+                                    <label>Static Control</label>
+                                    <p class="form-control-static">email@example.com</p>
+                                </div>
+                                <div class="form-group">
+                                    <label>Static Control</label>
+                                    <p class="form-control-static">email@example.com</p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div id="facepay-demo-chart1" style="height:500px;">
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-md-8 col-md-offset-4">
+                            <ul class="timeline">
+                                <%for(var i = 1; i < 6; i++) {%>
+                                <li <%=(i%2 === 0 ? 'class=timeline-inverted' : '')%>>
+                                    <div class="timeline-badge"><i class="fa fa-check"></i>
+                                    </div>
+                                    <div class="timeline-panel">
+                                        <div class="timeline-heading">
+                                            <h4 class="timeline-title">Xander Wang</h4>
+                                            <p><small class="text-muted"><i class="fa fa-check-circle-o"></i> 08-21 21:09 in Taipei</small>
+                                            </p>
+                                        </div>
+                                        <div class="timeline-body">
+                                            <p>TB-4522321</p>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero laboriosam dolor perspiciatis omnis exercitationem. Beatae, officia pariatur? Est cum veniam excepturi. Maiores praesentium, porro voluptas suscipit facere rem dicta, debitis.</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <%}%>
+                            </ul>
+                </div>
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="jumbotron">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing.</p>
+                        </p>
+                    </div>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+</body>
+
+<% include layouts/foot.html %>
+<script>
+
+var myChart = echarts.init(document.getElementById('facepay-demo-chart1'));
+var option = {
+    tooltip : {
+        trigger: 'axis'
+    },
+    toolbox: {
+        show : false
+    },
+    calculable : true,
+    xAxis : [
+        {
+            type : 'category',
+            boundaryGap : false,
+            data : ['08-01','08-04','08-07','08-10','08-13','08-16','08-19']
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value'
+        }
+    ],
+    series : [
+        {
+            name:'Task <%=id%>',
+            type:'line',
+            data:[70, 82, 121, 134, 180, 200, 270]
+        }
+    ]
+};
+myChart.setOption(option);
+
+</script>
+
+  </body>
+
+</html>

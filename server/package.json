@@ -1,0 +1,25 @@
+{
+  "name": "carriage",
+  "version": "0.0.1",
+  "main": "index.js",
+  "description": "carriage",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "devDependencies": {
+    "jshint": "^2.7.0"
+  },
+  "dependencies": {
+    "chance": "^0.7.6",
+    "co": "^4.6.0",
+    "koa": "^0.21.0",
+    "koa-ejs": "^2.0.1",
+    "koa-middlewares": "^4.1.0",
+    "koa-router": "^5.1.2",
+    "urllib": "^2.4.0"
+  },
+  "engine": {
+    "node": ">=0.12.0"
+  }
+}
