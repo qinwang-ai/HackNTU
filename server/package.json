@@ -17,6 +17,7 @@
     "koa-ejs": "^2.0.1",
     "koa-middlewares": "^4.1.0",
     "koa-router": "^5.1.2",
+    "md5": "^2.0.0",
     "urllib": "^2.4.0"
   },
   "engine": {

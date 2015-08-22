@@ -3,6 +3,7 @@ var koa = require('koa');
 var render = require('koa-ejs');
 var middlewares = require('koa-middlewares');
 var router = require('koa-router')();
+var md5 = require('md5');
 
 var path = require('path');
 var data = require('./data');
@@ -40,23 +41,31 @@ var routes = [
     ['/Nuggets', 'Nuggets'],
     ['/FacePay', 'FacePay']
 ];
+var tools = {
+    md5: md5
+};
 routes.forEach(function (obj) {
     router.get(obj[0], function *() {
         if(obj[2]) {
+            obj[2].tools = tools;
             yield this.render(obj[1], obj[2]);
         } else {
-            yield this.render(obj[1]);
+            yield this.render(obj[1], {
+                tools: tools
+            });
         }
     });
 });
 
 router.get('/FacePay/:id', function* () {
     yield this.render('/FacePayDetail', {
+        tools: tools,
         id: this.params.id
     });
 });
 router.get('/SlowShutter/:id', function* () {
     yield this.render('/SlowShutterDetail', {
+        tools: tools,
         id: this.params.id
     });
 });

@@ -18,44 +18,55 @@
             </div>
             <!-- /.row -->
             <div class="row">
-                <div class="col-lg-4">
-                    <h3>Details</h3>
+                <div class="col-lg-5">
+                    <h3>Detail Information</h3>
                     <div class="row">
-                        <div class="col-md-5 col-md-offset-1">
+                        <div class="col-md-6">
                             <form role="form">
                                 <div class="form-group">
-                                    <label>Static Control</label>
-                                    <p class="form-control-static">email@example.com</p>
+                                    <label>Type</label>
+                                    <p class="form-control-static">SQLite</p>
+                                </div>
+                                <div class="form-group" style="overflow-x:scroll;">
+                                    <label>URL</label>
+                                    <p class="form-control-static">http://api.carriage.com/slowshutter/7544/<%=id%></p>
                                 </div>
                                 <div class="form-group">
-                                    <label>Static Control</label>
-                                    <p class="form-control-static">email@example.com</p>
+                                    <label>Next Sync</label>
+                                    <p class="form-control-static">2015-08-<%=parseInt(Math.random()*4) + 22%></p>
                                 </div>
                                 <div class="form-group">
-                                    <label>Static Control</label>
-                                    <p class="form-control-static">email@example.com</p>
+                                    <label>Key</label>
+                                    <p class="form-control-static"><%=tools.md5(String(Math.random())).substr(0, 10)%></p>
                                 </div>
                             </form>
                         </div>
-                        <div class="col-md-5">
+                        <div class="col-md-6">
                             <form role="form">
                                 <div class="form-group">
-                                    <label>Static Control</label>
-                                    <p class="form-control-static">email@example.com</p>
+                                    <label>Node DB</label>
+                                    <p class="form-control-static">100</p>
                                 </div>
                                 <div class="form-group">
-                                    <label>Static Control</label>
-                                    <p class="form-control-static">email@example.com</p>
+                                    <label>Distributed DB Center</label>
+                                    <p class="form-control-static">15</p>
                                 </div>
                                 <div class="form-group">
-                                    <label>Static Control</label>
-                                    <p class="form-control-static">email@example.com</p>
+                                    <label>Root DB</label>
+                                    <p class="form-control-static">1</p>
+                                </div>
+                                <div class="form-group">
+                                    <label>Operation</label>
+                                    <p>
+                                        <button type="button" class="btn btn-primary">Export</button>
+                                        <button type="button" class="btn btn-info">Reset</button>
+                                    </p>
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-8">
+                <div class="col-lg-7">
                     <div id="slowshutter-demo-chart1" style="height:500px;">
                     </div>
                 </div>
@@ -159,7 +170,7 @@ var option = {
     },
     legend: {
         x: 'left',
-        data:['Node DB', 'Distributed DB', 'Root DB']
+        data:['Node DB', 'Distributed DB Center', 'Root DB']
     },
     series : [
         {
@@ -171,7 +182,7 @@ var option = {
                     name: 'Node DB'
                 },
                 {
-                    name: 'Distributed DB'
+                    name: 'Distributed DB Center'
                 },
                 {
                     name: 'Root DB'
