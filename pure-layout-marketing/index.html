@@ -1,10 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
+    <style>
+        .headshot{
+            width: 70%;
+            border-radius: 50%;
+        }
+
+    </style>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="简单的企业站首页">
-
     <title>Running bit</title>
 <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
 <!--[if lte IE 8]>
@@ -38,12 +44,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta property="og:title" content="Build better apps, faster.">
 <link rel="stylesheet" href="css/db231f5b.app.css">
+
 </head>
 <body>
 <div class="header">
     <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
-        <a class="pure-menu-heading" href="">Carriage</a>
-
+        <a class="pure-menu-heading" href="" style = "cursor:pointer">Carriage</a>
         <ul>
             <li class="pure-menu-selected"><a href="#">Home</a></li>
             <li><a href="#">Tour</a></li>
@@ -54,7 +60,7 @@
 
 <div class="splash-container">
     <div class="splash">
-        <h1 class="splash-head">Carriage</h1>
+        <h1 class="splash-head" style = "cursor:pointer" id = "carriage">Carriage</h1>
         <p class="splash-subhead">
             Not only network infrustructure, but also incubator of applications.
         </p>
@@ -285,95 +291,45 @@
       <div class="effect-movedown-gradient gradient-4"></div>
       <div class="effect-movedown-gradient gradient-5"></div> -->
 
-      <nav class="outer-nav top horizontal">
-      <div class="outer-nav-limit">
-        <h1>
-          <a target="_self" href="./LeanCloud_files/LeanCloud.html" class="font-logo">
-            LeanCloud
-          </a>
-        </h1>
-        <h2>价格合理，童叟无欺</h2>
-
-        <!-- Remember to change ./app/templates/pages/bill.swig -->
-    <h2 ng-show="env.WEBHOST==&#39;us&#39;" class="ng-hide">美国节点正在免费试用期，价格方案将在一段时间后公布。</h2>
-    <div class="price-wrap clearfix" ng-show="env.WEBHOST!=&#39;us&#39;">
-      <ul class="price-card">
-        <li class="icon"><i class="icon icon-gear"></i></li>
-        <li class="title">数据 API <b class="has-required tooltip-html ng-scope" data-title="&lt;ul&gt;&lt;li&gt;每月 100 万次免费请求&lt;/li&gt;&lt;li&gt;包括所有非文件类数据的存取&lt;/li&gt;&lt;li&gt;数据 API 流量免费&lt;/li&gt;&lt;/ul&gt;" bs-tooltip="" data-placement="top" data-html="true">?</b></li>
-        <li class="figure"><small>每月</small> <b>100</b> <small>万次免费</small></li>
-        <li class="translucent">超出后 <strong>0.5 元</strong> / 万次</li>
-      </ul>
-      <!-- .price-card -->
-
-      <ul class="price-card">
-        <li class="icon"><i class="icon icon-cloud-storage"></i></li>
-        <li class="title">文件存储</li>
-        <li class="figure"><small>每账号</small> <b>10 GB</b> <small>免费</small></li>
-        <li class="translucent">超出部分每月 <b>0.16 元</b> / GB</li>
-      </ul>
-      <!-- .price-card -->
-
-      <ul class="price-card">
-        <li class="icon"><i class="icon icon-dashboard"></i></li>
-        <li class="title">文件流量 <b class="has-required tooltip-html ng-scope" data-title="&lt;ul&gt;&lt;li&gt;&lt;b&gt;下载请求&lt;/b&gt;：每月 100 万次免费，超出后 0.01 元/万次&lt;/li&gt;&lt;li&gt;&lt;b&gt;上传／删除请求&lt;/b&gt;：每月 10 万次，超出后 0.1 元/万次&lt;/li&gt;&lt;li&gt;上传流量免费&lt;/li&gt;&lt;/ul&gt;" bs-tooltip="" data-placement="top" data-html="true">?</b></li>
-        <li class="figure"><small>每月</small> <b>15 GB</b> <small>免费</small></li>
-        <li class="translucent">超出后 <b>0.3 元</b> / GB</li>
-      </ul>
-      <!-- .price-card -->
-
-      <ul class="price-card">
-        <li class="icon"><i class="icon icon-chat"></i></li>
-        <li class="title">实时消息 <b class="has-required ng-scope" data-title="活跃用户指当天登录到实时消息服务的独立用户" bs-tooltip="" data-placement="top">?</b></li>
-        <li class="figure"><small>每天</small> <b>500</b> <small>位免费活跃用户</small></li>
-        <li class="translucent">超出后 <b>1 元</b> / 千人 / 天</li>
-      </ul>
-      <!-- .price-card -->
-
-      <ul class="price-card">
-        <li class="icon"><i class="icon icon-push"></i></li>
-        <li class="title">消息推送</li>
-        <li class="figure"><b>免费</b></li>
-        <li class="translucent">无任何限制</li>
-      </ul>
-      <!-- .price-card -->
-
-      <ul class="price-card">
-        <li class="icon"><i class="icon icon-chart-alt"></i></li>
-        <li class="title">统计分析</li>
-        <li class="figure"><b>免费</b></li>
-        <li class="translucent">无任何限制</li>
-      </ul>
-      <!-- .price-card -->
-
-      <ul class="price-card">
-        <li class="icon"><i class="icon icon-sms"></i></li>
-        <li class="title">短信</li>
-        <li class="figure"><small>每帐号前</small> <b>100</b> <small>条免费</small></li>
-        <li class="translucent">超出后 <b>0.06 元</b> / 条</li>
-      </ul>
-      <!-- .price-card -->
-
-      <ul class="price-card" style="opacity: .5;">
-        <li class="icon"><i class="icon icon-question"></i></li>
-        <li class="title">敬請期待</li>
-        <li class="figure">Coming Soon</li>
-        <li class="translucent">更多功能敬請期待</li>
-      </ul>
-      <!-- .price-card -->
-
-    </div>
-    <!-- .price-wrap -->
-
-
-        <a href="https://leancloud.cn/login.html#signup" class="signup-btn" target="_top">免费试用</a>
-        <!-- <a href="mailto:support@leancloud.cn" class="signup-btn">联系我们</a> -->
-        <!-- <p class="price-note">详细价格信息，请查阅 <a href="pricing.html"><b>价格明细</b></a></p> -->
-        <p class="price-note">免费额度按每个账号计算，详细请查看 <a href="https://leancloud.cn/pricing.html" target="_self"><b>价格详情</b></a></p>
-      </div>
-    </nav>
 
 
     </div>
+
+<!--  HELLO       -->
+
+<div id="org_team" style="display: block;">
+<div class="container team-shots">
+		<br><br>
+		<div class="row" style="text-align:center">
+            <div class="col-md-3">
+                <img src="img/gouge.jpg" class="headshot">
+                <p>Xiaoyu Wang</p>
+
+				<p class="title">Backend Development</p>
+            </div>
+			<div class="col-md-3">
+                <img src="img/roy.jpg" class="headshot">
+                <p>Roy Xue</p>
+
+				<p class="title">Intel Edison Development</p>
+            </div>
+
+			<div class="col-md-3">
+                <img src="img/wq.jpg" class="headshot">
+                <p>Qin Wang</p>
+				<p class="title">frontend Development</p>
+            </div>
+			<div class="col-md-3">
+                <img src="img/jf.jpg" class="headshot">
+                <p>Jianfei Yang</p>
+
+				<p class="title">Chief PR and Management Executive</p>
+            </div>
+        </div>
+		<br><br>
+    </div>
+</div>
+
 
 
 
