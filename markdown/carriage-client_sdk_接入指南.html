@@ -1,0 +1,234 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #737373;
+    background-color: white;
+    margin: 10px 13px 10px 13px;
+}
+table {
+	margin: 10px 0 15px 0;
+	border-collapse: collapse;
+}
+td,th {	
+	border: 1px solid #ddd;
+	padding: 3px 10px;
+}
+th {
+	padding: 5px 10px;	
+}
+
+a {
+    color: #0069d6;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+code {
+    background-color: #fee9cc;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid #d9d9d9;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #fff;
+    color:#737373;
+    font-size: 11px;
+    padding: 0;
+}
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:10px auto;
+    }
+}
+@media print {
+	body,code,pre code,h1,h2,h3,h4,h5,h6 {
+		color: black;
+	}
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+</style>
+<title>Carriage-Client SDK 接入指南</title>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax:{inlineMath:[['$$$','$$$']]}});</script><script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<h1>Carriage-Client SDK 接入指南</h1>
+
+<h3>iOS SDK 接入指南</h3>
+
+<ul>
+<li><p>应用可以直接向api.carriage.com/XXX发送所有的应用请求，Node节点服务器会对分布式服务器进行同样的处理逻辑。</p></li>
+<li><p>使用 CocoaPods</p>
+
+<ol>
+<li><p> 在 Podfile 添加</p>
+
+<p>  pod 'Pingpp', '~> 2.1.0'
+默认会包含支付宝、微信、银联和百度钱包，你也可以自己选择渠道。
+目前有 ApplePay、Alipay、Wx、UnionPay、Bfb 五个子模块可选择，例如：</p></li>
+</ol>
+
+
+<pre><code>  pod 'Pingpp/Alipay', '~&gt; 2.1.0'
+  pod 'Pingpp/Wx', '~&gt; 2.1.0'
+  pod 'Pingpp/UnionPay', '~&gt; 2.1.0'
+  pod 'Pingpp/ApplePay', '~&gt; 2.1.0'
+</code></pre>
+
+<ol>
+<li> 运行 pod install</li>
+<li> 从现在开始使用 .xcworkspace 打开项目，而不是 .xcodeproj</li>
+<li> 添加 URL Schemes：在 Xcode 中，选择你的工程设置项，选中 TARGETS 一栏，在 Info 标签栏的 URL Types 添加 URL Schemes，如果使用微信，填入微信平台上注册的应用程序 id（为 wx 开头的字符串），如果不使用微信，则自定义，建议起名稍复杂一些，尽量避免与其他程序冲突。允许英文字母和数字，首字母必须是英文字母，不允许特殊字符。</li>
+<li> 2.1.0 及以上版本，可打开 Debug 模式，打印出 log，方便调试。开启方法：[Pingpp setDebugMode:YES];。</li>
+</ol>
+</li>
+<li><p>手动导入</p>
+
+<ol>
+<li> 在 Github 根据所需渠道下载相应分支的 iOS SDK，里面包含 lib 和 example 两个目录。example 目录下的是示例项目，你需要将 lib 目录下的文件添加到你的项目。</li>
+<li><p> 依赖 Frameworks：</p>
+
+<p>  必需：</p>
+
+<ul>
+<li>CFNetwork.framework</li>
+<li>SystemConfiguration.framework</li>
+<li>Security.framework</li>
+<li>libc++.dylib</li>
+<li>libz.dylib</li>
+<li>libsqlite3.0.dylib</li>
+</ul>
+
+
+<p>  如果不需要某些渠道，删除 lib/Channels 下的相应目录即可。</p></li>
+</ol>
+</li>
+<li><p>添加 URL Schemes：</p>
+
+<p>  在 Xcode 中，选择你的工程设置项，选中 TARGETS 一栏，在 Info 标签栏的 URL Types 添加 URL Schemes，如果使用微信，填入微信平台上注册的应用程序 id（为 wx 开头的字符串），如果不使用微信，则自定义，建议起名稍复杂一些，尽量避免与其他程序冲突。允许英文字母和数字，首字母必须是英文字母，不允许特殊字符。
+添加 Other Linker Flags：在 Build Settings 搜索 Other Linker Flags，添加 -ObjC。
+2.1.0 及以上版本，可打开 Debug 模式，打印出 log，方便调试。开启方法：[Pingpp setDebugMode:YES];。</p></li>
+<li><p>接入</p>
+
+<p>  客户端从服务器端拿到 charge 对象后，调用下面的方法</p>
+
+<pre><code>[Pingpp createPayment:charge
+     viewController:viewController
+       appURLScheme:kUrlScheme
+     withCompletion:^(NSString *result, PingppError *error) {
+  if ([result isEqualToString:@"success"]) {
+      // 支付成功
+  } else {
+      // 支付失败或取消
+      NSLog(@"Error: code=%lu msg=%@", error.code, [error getMsg]);
+  }
+}];
+</code></pre></li>
+</ul>
+
+</body>
+</html>

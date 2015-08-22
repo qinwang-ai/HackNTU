@@ -1,0 +1,209 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #737373;
+    background-color: white;
+    margin: 10px 13px 10px 13px;
+}
+table {
+	margin: 10px 0 15px 0;
+	border-collapse: collapse;
+}
+td,th {	
+	border: 1px solid #ddd;
+	padding: 3px 10px;
+}
+th {
+	padding: 5px 10px;	
+}
+
+a {
+    color: #0069d6;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+code {
+    background-color: #fee9cc;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid #d9d9d9;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #fff;
+    color:#737373;
+    font-size: 11px;
+    padding: 0;
+}
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:10px auto;
+    }
+}
+@media print {
+	body,code,pre code,h1,h2,h3,h4,h5,h6 {
+		color: black;
+	}
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+</style>
+<title>Introduction</title>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax:{inlineMath:[['$$$','$$$']]}});</script><script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<h1>Introduction</h1>
+
+<h3>Carriage SDK</h3>
+
+<p>With the development of the Internet, the world has changed a lot. However, the extension of it has been blocked by expensive cost of line and base station. After 41 hours development, here comes our technology to deal with it!</p>
+
+<p>We build a customized ISP for local residents and multi-view SDK for developers. All the services in a village are supplied by our carriage system, in which the users can access to our network by wifi, the developers can monitor the distribution of their application and the data is updated by manpower.</p>
+
+<ul>
+<li><p>RunningBit SDK</p>
+
+<p>  RunningBit service distributes the content to all nodes deployed in the developing area and provides user`s access with a marvelous speed.</p></li>
+<li><p>SlowShutter SDK</p>
+
+<p>  SlowShutter service provides reliable and slow-synchronization database, which performs distributions and storage states in the back-stage management.</p></li>
+<li><p>Nuggets SDK</p>
+
+<p>  Nuggets service plays an important role in the big data time. You can design your survey in the undeveloped area for commercial as well as research use.</p></li>
+<li><p>FacePay SDK</p>
+
+<p>  In terms of the frequent cash-use custom, FacePay service realizes the offline cash transaction and online check.</p></li>
+</ul>
+
+
+<h3>环境</h3>
+
+<p>为了提高接入效率，Carriage SDK 提供了 Live 和 Test 两个工作模式供开发者接入时使用。两个模式的切换非常简单，只需要在使用 Server SDK 的过程中设置 API Key 时根据自己的需要使用相应的 Key 即可：设置为 test key 表明使用 Test 模式，设置为 live key 则是使用 Live 模式。Test Key 在 Carriage SDK 管理平台注册后便可以自动获得，Live Key 在完成签约操作后便可获得。</p>
+
+<ul>
+<li>Test 模式</li>
+</ul>
+
+
+<p>Test 模式供开发测试时使用。因为 Test 模式把流程与真实渠道参数隔离开，所以开发可以与渠道申请同时进行，从而缩短接入调试时间。Test 模式中发起FacePay模拟交易不会调用真实支付控件，支付时客户端会跳转到 Carriage SDK 提供的模拟支付页面。</p>
+
+<ul>
+<li>Live 模式</li>
+</ul>
+
+
+<p>Live 模式是应用上线的模式。该模式下会发生真实的交易和真实的数据，调起真实的支付控件产生真实的资金流动，所以请确保在 Test 模式下所有的功能都测试通过后，再切换到 Live 模式。</p>
+
+<h3>管理平台</h3>
+
+<p>为了方便你接入后能更好的管理你的账户和API，Carriage SDK 提供了管理平台，帮助你管理你的账户信息、订单信息等。你不再需要分别去每个Service的管理平台处理响应的业务，你的账户、渠道等信息也是在管理平台上面配置。</p>
+
+<h3>Carriage Hooks</h3>
+
+<p>Carriage Hooks 是 Carriage SDK 推出的回调推送系统。在你指定的事件发生后，Carriage Hooks 会给你设置的接收地址发送相应事件消息。</p>
+</body>
+</html>
