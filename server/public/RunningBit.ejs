@@ -5,6 +5,34 @@
 
 <body>
 
+
+    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="exampleModalLabel">New message</h4>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="recipient-name" class="control-label">Recipient:</label>
+                <input type="text" class="form-control" id="recipient-name">
+              </div>
+              <div class="form-group">
+                <label for="message-text" class="control-label">Message:</label>
+                <textarea class="form-control" id="message-text"></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Send message</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div id="wrapper">
 
         <% include layouts/nav.html %>
@@ -12,11 +40,66 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">RunningBit</h1>
+                    <h1 class="page-header"><i class="fa fa-hdd-o fa-fw"></i>RunningBit</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3>Detail Information</h3>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <form role="form">
+                                <div class="form-group">
+                                    <label>Disk Info</label>
+                                    <p class="form-control-static">45 / 60 G</p>
+                                </div>
+                                <div class="form-group">
+                                    <label>Sync Interval</label>
+                                    <p class="form-control-static">3 Days</p>
+                                </div>
+                                <div class="form-group">
+                                    <label>Next Sync Day</label>
+                                    <p class="form-control-static">2015-08-23</p>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-4">
+                            <form role="form">
+                                <div class="form-group">
+                                    <label>City</label>
+                                    <p class="form-control-static">Mindanao</p>
+                                </div>
+                                <div class="form-group">
+                                    <label>Node Number</label>
+                                    <p class="form-control-static">31</p>
+                                </div>
+                                <div class="form-group">
+                                    <label>Available</label>
+                                    <p class="form-control-static">95%</p>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-4">
+                            <form role="form">
+                                <div class="form-group">
+                                    <label>WebDAV URL</label>
+                                    <p class="form-control-static">http://api.carriage.com/runningbit/7544</p>
+                                </div>
+                                <div class="form-group">
+                                    <label>Task Number</label>
+                                    <p class="form-control-static">9</p>
+                                </div>
+                                <div class="form-group">
+                                    <label>Price</label>
+                                    <p class="form-control-static">$ 23 (Since 2015-07-20)</p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-lg-5">
                     <div class="panel panel-default">
@@ -39,16 +122,16 @@
                         <!-- /.panel-heading -->
                         <div class="panel-body">
 
-                                <%for(var i = 1; i < 7; i++) {%>
+                                <%for(var i = 1; i < 10; i++) {%>
                                 <div class="row">
                                     <div class="col-sm-2">
-                                        <i class="fa fa-tasks fa-fw"></i> Task <%=i%>
+                                        <i class="fa fa-tasks fa-fw"></i> Task #<%=i%>
                                     </div>
                                     <div class="col-sm-10">
                                         <div class="progress progress-striped active">
-                                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                            <div class="progress-bar progress-bar-<%=i%4===0 ? 'success' : (i%4===1 ? 'info' : (i%4===2 ? 'warning': 'danger'))%>" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: <%=parseInt(Math.random()*100)%>%">
                                             </div>
-                                            <span class="pull-right text-muted"><%=i%> G</span>
+                                            <span class="pull-right text-muted"><%=parseInt(Math.random()*30 + 20)%> G</span>
                                         </div>
                                     </div>
                                 </div>
@@ -61,7 +144,7 @@
                                 <%}%>
 
                             <!-- /.list-group -->
-                            <a href="#" class="btn btn-default btn-block">New Task</a>
+                            <button type="button" class="btn btn-default btn-block" data-toggle="modal" data-target=".bs-example-modal-lg">New Task</button>
                         </div>
                         <!-- /.panel-body -->
                     </div>
@@ -95,12 +178,12 @@
     var option = {
         tooltip : {
             trigger: 'item',
-            formatter: "{b} : {c} ({d}%)"
+            formatter: "{b} : {c} G ({d}%)"
         },
         legend: {
             orient : 'vertical',
             x : 'left',
-            data:['Init','Init finish','Pending','Complete']
+            data:['Init','Prepared','Pending','Complete']
         },
         toolbox: {
             show : false
@@ -132,7 +215,7 @@
                 },
                 data:[
                     {value:310, name:'Init'},
-                    {value:234, name:'Init finish'},
+                    {value:234, name:'Prepared'},
                     {value:135, name:'Pending'},
                     {value:448, name:'Complete'}
                 ]
