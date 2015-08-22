@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)http://ionicframework.com/docs/platform-customization/# -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/site.css?12" rel="stylesheet">
+  </head>
+  <body class="docs docs-page docs-guide" data-pinterest-extension-installed="cr1.38.4" style="margin:0!important">
+    <nav class="navbar navbar-default horizontal-gradient" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle button ionic" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <i class="icon ion-navicon"></i>
+      </button>
+      <h1 style= "color:white">
+          Documentation
+      </h1>
+    </div>
+
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li></li>
+        <li><a class="docs-nav nav-link" href="doc_intro.html">Docs</a></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li class="dropdown">
+          <a href="../pure-layout-marketing/index.html" class="dropdown-toggle" role="button" >Carriage</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+    <div class="header horizontal-gradient">
+  <div class="container">
+    <h3>Platform Customization</h3>
+    <h4>An overview of customizing your App based on the platform</h4>
+  </div>
+
+</div>
+
+<div id="search-results" class="search-results" style="display:none">
+  <div class="container">
+    <div class="search-section search-api">
+      <h4>JavaScript</h4>
+      <ul id="results-api"></ul>
+    </div>
+    <div class="search-section search-css">
+      <h4>CSS</h4>
+      <ul id="results-css"></ul>
+    </div>
+    <div class="search-section search-content">
+      <h4>Resources</h4>
+      <ul id="results-content"></ul>
+    </div>
+  </div>
+</div>
+
+
+
+    <div class="container content-container">
+
+      <div class="row">
+
+        <div class="col-md-2 col-sm-3 aside-menu">
+
+          <div class="docked-menu">
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="doc_intro.html">Overview</a>
+              </li>
+            </ul>
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="doc_server.html">Server</a>
+              </li>
+            </ul>
+
+            <!-- Docs: Platform Customization -->
+
+
+            <ul class="nav left-menu">
+              <li class="menu-title">
+                <a href="doc_client.html">Client</a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="col-md-10 col-sm-9 main-content">
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<style>
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #737373;
+    background-color: white;
+    margin: 10px 13px 10px 13px;
+}
+table {
+	margin: 10px 0 15px 0;
+	border-collapse: collapse;
+}
+td,th {
+	border: 1px solid #ddd;
+	padding: 3px 10px;
+}
+th {
+	padding: 5px 10px;
+}
+
+a {
+    color: #0069d6;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+code {
+    background-color: #fee9cc;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid #d9d9d9;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    color:#737373;
+    font-size: 11px;
+    padding: 0;
+}
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media print {
+	body,code,pre code,h1,h2,h3,h4,h5,h6 {
+		color: black;
+	}
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+</style>
+<title>Carriage-Server SDK 接入指南</title>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax:{inlineMath:[['$$$','$$$']]}});</script><script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<h1 style="margin-top:0!important">Carriage-Server SDK 接入指南</h1>
+
+<h3>以Node.js接入为例</h3>
+
+<ul>
+<li><p>付款</p>
+
+<p>  接入 Carriage SDK 发起支付，服务器端需要做的就是向 Carriage SDK 请求 Charge 对象，然后返回给客户端。并且监听和获取 Webhooks 通知。</p>
+
+<p>  而完成这两件事具体涉及以下几步：</p>
+
+<ol>
+<li> 设置 API-Key</li>
+<li> 发起支付请求获取支付凭据</li>
+<li> 将获得的支付凭据传给 Client</li>
+<li> 接收 Webhooks 通知</li>
+<li> 我们以 alipay 渠道为例子详细介绍 Server SDK 如何使用发起支付请求，而不同渠道的具体区别，在 关于渠道 中详细说明。</li>
+</ol>
+</li>
+</ul>
+
+
+<h5>第一步：设置 API-Key</h5>
+
+<p>Carriage SDK API 交易时需要设置 API-Key，Server SDK 提供了设置的方法。如果你直接使用 API ，需要在 header 中加入 Authorization，格式是 Authorization: Bearer API-Key。</p>
+
+<p><code>var pingpp = require('pingpp')('sk_test_ibbTe5jLGCi5rzfH4OqPW9KC');</code></p>
+
+<h5>第二步：发起支付请求获取支付凭据</h5>
+
+<p>调用 Carriage SDK Server SDK 发起支付请求，发起请求所需参数具体可参考 API 文档。不同的渠道只需要切换 channel、添加不同渠道所需的不同的参数，关于渠道区别详见 关于渠道。</p>
+
+<pre><code>pingpp.charges.create({
+        subject: "Your Subject",
+        body: "Your Body",
+        amount: 100,
+        order_no: "123456789",
+        channel: "alipay",
+        currency: "cny",
+        client_ip: "127.0.0.1",
+        app: {id: "app_1Gqj58ynP0mHeX1q"}
+    }, function(err, charge) {
+        // YOUR CODE
+    });
+</code></pre>
+
+<p>Carriage SDK 收到支付请求后返回给你的服务器一个 Charge 对象，我们称这个 Charge 对象为支付凭据。下面是支付凭据的一个示例：</p>
+
+<pre><code>{
+  "id": "ch_Hm5uTSifDOuTy9iLeLPSurrD",
+  "object": "charge",
+  "created": 1425095528,
+  "livemode": true,
+  "paid": false,
+  "refunded": false,
+  "app": "app_1Gqj58ynP0mHeX1q",
+  "channel": "alipay",
+  "order_no": "123456789",
+  "client_ip": "127.0.0.1",
+  "amount": 100,
+  "amount_settle": 0,
+  "currency": "cny",
+  "subject": "Your Subject",
+  "body": "Your Body",
+  "extra":{},
+  "time_paid": null,
+  "time_expire": 1425181928,
+  "time_settle": null,
+  "transaction_no": null,
+  "refunds": {
+    "object": "list",
+    "url": "/v1/charges/ch_Hm5uTSifDOuTy9iLeLPSurrD/refunds",
+    "has_more": false,
+    "data": []
+  },
+  "amount_refunded": 0,
+  "failure_code": null,
+  "failure_msg": null,
+  "credential": {
+    "object": "credential",
+    "alipay":{
+      "orderInfo": "_input_charset=\"utf-8\"&amp;body=\"tsttest\"&amp;it_b_pay=\"1440m\"¬ify_url=\"https%3A%2F%2Fapi.pingxx.com%2Fnotify%2Fcharges%2Fch_jH8uD0aLyzHG9Oiz5OKOeHu9\"&amp;out_trade_no=\"1234dsf7uyttbj\"&amp;partner=\"2008451959385940\"&amp;payment_type=\"1\"&amp;seller_id=\"2008451959385940\"&amp;service=\"mobile.securitypay.pay\"&amp;subject=\"test\"&amp;total_fee=\"1.23\"&amp;sign=\"dkxTeVhMMHV2dlRPNWl6WHI5cm56THVI\"&amp;sign_type=\"RSA\""
+    }
+  },
+  "description": null
+}
+</code></pre>
+
+<h4>第三步：将获得的支付凭据传给 Client</h4>
+
+<p>你的服务器需要按照 JSON 字符串格式将支付凭据返回给你的客户端，Carriage SDK SDK 对此做了相应的处理，你只需要将获得的支付凭据直接传给客户端。客户端接收后使用该支付凭据用于调起支付控件，而支付凭据的传送方式需要你自行实现。</p>
+
+<h4>第四步：接收 Webhooks 通知</h4>
+
+<p>当用户完成交易后 Carriage SDK 会以 Post 方式给你配置在 Carriage SDK 管理平台的 Webhooks 通知地址主动发送支付结果，我们称之为 Webhooks 通知，内容为您在 Webhooks 上配置的 charge.succeeded 事件对象，结果内容示例如下：</p>
+
+<pre><code>{
+    "id": "evt_ugB6x3K43D16wXCcqbplWAJo",
+    "created": 1427555101,
+    "livemode": true,
+    "type": "charge.succeeded",
+    "data": {
+        "object": {
+            "id": "ch_Xsr7u35O3m1Gw4ed2ODmi4Lw",
+            "object": "charge",
+            "created": 1427555076,
+            "livemode": true,
+            "paid": true,
+            "refunded": false,
+            "app": "app_1Gqj58ynP0mHeX1q",
+            "channel": "upacp",
+            "order_no": "123456789",
+            "client_ip": "127.0.0.1",
+            "amount": 100,
+            "amount_settle": 0,
+            "currency": "cny",
+            "subject": "Your Subject",
+            "body": "Your Body",
+            "extra": {},
+            "time_paid": 1427555101,
+            "time_expire": 1427641476,
+            "time_settle": null,
+            "transaction_no": "1224524301201505066067849274",
+            "refunds": {
+                "object": "list",
+                "url": "/v1/charges/ch_L8qn10mLmr1GS8e5OODmHaL4/refunds",
+                "has_more": false,
+                "data": []
+            },
+            "amount_refunded": 0,
+            "failure_code": null,
+            "failure_msg": null,
+            "metadata": {},
+            "credential": {},
+            "description": null
+        }
+    },
+    "object": "event",
+    "pending_webhooks": 0,
+    "request": "iar_qH4y1KbTy5eLGm1uHSTS00s"
+}
+</code></pre>
+</body>
+</html>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="pre-footer">
+
+      <div class="row ionic">
+
+        <div class="col-sm-6 col-a">
+          <h4>
+            <a href="">Getting started </a>
+          </h4>
+          <p>
+            Learn more about how Ionic was built, why you should use it, and what's included. We'll cover
+            the basics and help you get started from the ground up.
+          </p>
+        </div>
+
+        <div class="col-sm-6 col-b">
+          <h4>
+            <a href="">Documentation</a>
+          </h4>
+          <p>
+            What are you waiting for? Take a look and get coding! Our documentation covers all you need to know
+            to get an app up and running in minutes.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body></html>
