@@ -83,4 +83,4 @@ app.use(middlewares.staticCache(path.join(__dirname, './public')), {
     buffer: false
 });
 
-app.listen(8000);
+app.listen(80);
